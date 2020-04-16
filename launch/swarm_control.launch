@@ -7,7 +7,6 @@
         type = "position_publisher"
         name = "position_publisher"
     />
-<?ignore
     <node
         pkg = "swarm_control"
         type = "driver"
@@ -15,5 +14,4 @@
         output="screen" 
         launch-prefix="xterm -e"
     />
-?>
 </launch>
