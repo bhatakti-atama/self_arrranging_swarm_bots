@@ -1,0 +1,19 @@
+<launch>
+    <include 
+        file="$(find turtlebot3_gazebo)/launch/turtlebot3_empty_world.launch"
+    />
+    <node
+        pkg = "swarm_control"
+        type = "position_publisher"
+        name = "position_publisher"
+    />
+<?ignore
+    <node
+        pkg = "swarm_control"
+        type = "driver"
+        name = "driver"
+        output="screen" 
+        launch-prefix="xterm -e"
+    />
+?>
+</launch>
