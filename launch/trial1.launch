@@ -7,13 +7,15 @@
         type = "position_publisher"
         name = "position_publisher"
     />
-<?ignore
     <node
         pkg = "swarm_control"
         type = "driver"
         name = "driver"
-        output="screen" 
-        launch-prefix="xterm -e"
     />
-?>
+     <node
+        pkg = "swarm_control"
+        type = "key_publisher.py"
+        name = "key_pub"
+        launch-prefix="gnome-terminal --command"
+    />
 </launch>

@@ -1,12 +1,14 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(swarm_control)
-find_package( catkin REQUIRED COMPONENTS roscpp geometry_msgs )
+find_package( catkin REQUIRED COMPONENTS roscpp geometry_msgs rospy )
 catkin_package()
 include_directories(include ${catkin_INCLUDE_DIRS})
 add_executable(position_publisher src/position_publisher.cpp)
 add_executable(driver src/driver.cpp)
+add_executable(position_publisher_new src/position_publisher_new.cpp)
 target_link_libraries( position_publisher ${catkin_LIBRARIES})
 target_link_libraries( driver ${catkin_LIBRARIES})
+target_link_libraries( position_publisher_new ${catkin_LIBRARIES})
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
 

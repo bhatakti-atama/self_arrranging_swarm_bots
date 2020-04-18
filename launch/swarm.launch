@@ -1,0 +1,133 @@
+<launch>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg 
+            name="world_name" 
+            value="$(find turtlebot3_gazebo)/worlds/empty.world"
+        />
+        <arg 
+            name="paused" 
+            value="false"
+        />
+        <arg 
+            name="use_sim_time" 
+            value="true"
+        />
+        <arg 
+            name="gui" 
+            value="true"
+        />
+        <arg 
+            name="headless" 
+            value="false"
+        />
+        <arg 
+            name="debug" 
+            value="false"
+        />
+    </include>
+    <?ignore
+    <node
+        pkg="swarm_control"
+        type="position_publisher"
+        name="position_publisher"
+    />
+    ?>
+    <group ns="bot0">
+        <include file="$(find swarm_control)/launch/robot.launch">
+            <arg 
+                name="x_pos" 
+                value="4.0"
+            />
+            <arg 
+                name="y_pos" 
+                value="2.0"
+            />
+            <arg 
+                name="ns" 
+                value="bot0"
+            />
+        </include>
+  </group>
+  <group ns="bot1">
+        <include file="$(find swarm_control)/launch/robot.launch">
+            <arg 
+                name="x_pos" 
+                value="4.0"
+            />
+            <arg 
+                name="y_pos" 
+                value="0.0"
+            />
+            <arg 
+                name="ns" 
+                value="bot1"
+            />
+        </include>
+  </group>
+  <group ns="bot2">
+        <include file="$(find swarm_control)/launch/robot.launch">
+            <arg 
+                name="x_pos" 
+                value="4.0"
+            />
+            <arg 
+                name="y_pos" 
+                value="-2.0"
+            />
+            <arg 
+                name="ns" 
+                value="bot2"
+            />
+        </include>
+  </group>
+  <group ns="bot3">
+        <include file="$(find swarm_control)/launch/robot.launch">
+            <arg 
+                name="x_pos" 
+                value="-4.0"
+            />
+            <arg 
+                name="y_pos" 
+                value="-2.0"
+            />
+            <arg 
+                name="ns" 
+                value="bot3"
+            />
+        </include>
+  </group>
+  <group ns="bot4">
+        <include file="$(find swarm_control)/launch/robot.launch">
+            <arg 
+                name="x_pos" 
+                value="-4.0"
+            />
+            <arg 
+                name="y_pos" 
+                value="0.0"
+            />
+            <arg 
+                name="ns" 
+                value="bot4"
+            />
+        </include>
+  </group>
+  <group ns="bot5">
+        <include file="$(find swarm_control)/launch/robot.launch">
+            <arg 
+                name="x_pos" 
+                value="-4.0"
+            />
+            <arg 
+                name="y_pos" 
+                value="2.0"
+            />
+            <arg 
+                name="ns" 
+                value="bot5"
+            />
+        </include>
+  </group>
+
+
+</launch>
