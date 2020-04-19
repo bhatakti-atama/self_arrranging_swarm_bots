@@ -21,9 +21,15 @@ int main(int argc, char **argv)
     ros:: NodeHandle nh;
     ros::Publisher pubBot[6];
     double hexagon[6][2] =   { {0,8},   {5,5},
-                              {0,-8},  {5,-5},
+                              {5,-5},  {0,-8},
                               {-5,-5}, {-5,-5}
                             };
+    double same[6][2];
+    for ( int i=0; i<6; i++)
+    {
+        same[i][0] = 0;
+        same[i][1] = -8;
+    }
     for(int i=0; i<6; i++)
     {
         std::ostringstream os;
@@ -31,4 +37,9 @@ int main(int argc, char **argv)
         std::string s = os.str();
         pubBot[i] = nh.advertise< geometry_msgs::Pose >(s,1000);
     }
+    while (ros::ok())
+    {
+        publish(same,pubBot);
+    }
+    
 }
