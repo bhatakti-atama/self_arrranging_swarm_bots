@@ -12,10 +12,13 @@
         type = "driver"
         name = "driver"
     />
+<<<<<<< HEAD:launch/trial1.launch
      <node
         pkg = "swarm_control"
         type = "key_publisher.py"
         name = "key_pub"
         launch-prefix="gnome-terminal --command"
     />
+=======
+>>>>>>> c39a435490ac75deb82600fbf7f2de21bf24283d:launch/swarm_control.launch
 </launch>
