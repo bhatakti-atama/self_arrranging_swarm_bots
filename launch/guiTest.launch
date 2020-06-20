@@ -1,0 +1,7 @@
+<launch>
+    <node
+        pkg="swarm_control"
+        type="gui2.py"
+        name="gui"
+    />
+</launch>

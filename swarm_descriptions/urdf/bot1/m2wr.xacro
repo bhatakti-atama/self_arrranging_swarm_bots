@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+
+<!-- 
+  http://wiki.ros.org/urdf/XML
+
+  In this xacro file we have defined the following:
+    chasis + caster wheel : link type element
+    wheels : link type elements (left + right)
+    joints : joint type elements (left + right) 
+--> 
+
+<robot name="m2wr" xmlns:xacro="https://www.ros.org/wiki/xacro" >
+  
+  <xacro:include filename="$(find m2wr_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find m2wr_description)/urdf/gazebo.xacro" />
+  <xacro:include filename="$(find m2wr_description)/urdf/macro.xacro" />
+  
+  <!-- Defining link chassis -->
+  <link name="link_chassis">
+    <!-- pose and inertial -->
+    <pose>0 0 0.1 0 0 0</pose>
+  <!--  
+    All of these elements have some common properties like inertial, collision and visual. 
+
+    The inertial and collision properties enable physics simulation and the visual property controls the appearance of the robot.
+  -->
+
+    <!-- Inertial properties -->
+    <inertial>
+      <mass value="5"/>
+      <origin rpy="0 0 0" xyz="0 0 0.1"/>
+      <inertia ixx="0.0395416666667" ixy="0" ixz="0" iyy="0.106208333333" iyz="0" izz="0.106208333333"/>
+    </inertial>
+    <!-- Collision properties -->
+    <collision name="collision_chassis">
+      <geometry>
+        <box size="0.5 0.3 0.07"/>
+      </geometry>
+    </collision>
+    <!-- Visual properties -->
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <!--<box size="0.5 0.3 0.07"/>-->
+	<cylinder length="0.015" radius="0.3"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    
+    <!-- caster front -->
+    <collision name="caster_front_collision">
+      <origin rpy=" 0 0 0" xyz="0.35 0 -0.05"/>
+      <geometry>
+        <sphere radius="0.05"/>
+      </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>0</mu>
+            <mu2>0</mu2>
+            <slip1>1.0</slip1>
+            <slip2>1.0</slip2>
+          </ode>
+        </friction>
+      </surface>
+    </collision>
+    <visual name="caster_front_visual">
+      <origin rpy=" 0 0 0" xyz="0.2 0 -0.05"/>
+      <geometry>
+        <sphere radius="0.05"/>
+      </geometry>
+    </visual>
+    </link>
+  
+  <!-- 
+    Replace the wheel links with the following lines for macros:
+  -->
+  <xacro:link_wheel name="link_right_wheel" />
+  <xacro:link_wheel name="link_left_wheel" />    
+    
+  <!--
+    The joints help in defining the relative motion between links such as the motion of wheel with respect to the chassis. The wheels are links of cylindrical geometry, they are oriented (using rpy property) such that rolling is possible. The placement is controlled via the xyz property. For joints, we have specified the values for damping and friction as well.  
+
+    Both wheels joints are replaced with the following two lines:
+  -->
+  <xacro:joint_wheel name="joint_right_wheel"  child="link_right_wheel"  origin_xyz="-0.05 0.32 0"  />
+  <xacro:joint_wheel name="joint_left_wheel"   child="link_left_wheel"   origin_xyz="-0.05 -0.32 0"  />
+
+ 
+ 
+</robot>

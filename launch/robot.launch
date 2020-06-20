@@ -34,7 +34,12 @@
     />
     <node
         pkg="swarm_control"
-        type="driver"
-        name="driver"
+        type="driverNew"
+        name="driverNew"
+    />
+    <node
+        pkg="swarm_control"
+        type="convert"
+        name="convert"
     />
 </launch>

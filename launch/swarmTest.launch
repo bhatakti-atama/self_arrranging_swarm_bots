@@ -2,7 +2,7 @@
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg 
             name="world_name" 
-            value="$(find turtlebot3_gazebo)/worlds/empty.world"
+            value="$(find swarm_control)/worlds/empty.world"
         />
         <arg 
             name="paused" 
@@ -30,11 +30,7 @@
         type="position_publisher_new"
         name="position_publisher_new"
     />
-    <node
-        pkg="swarm_control"
-        type="key_publisher.py"
-        name="key_publisher"
-    />
+    
         <node
         pkg="swarm_control"
         type="gui2.py"

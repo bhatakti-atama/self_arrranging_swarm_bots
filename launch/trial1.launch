@@ -2,23 +2,21 @@
     <include 
         file="$(find turtlebot3_gazebo)/launch/turtlebot3_empty_world.launch"
     />
+    <?ignore
     <node
         pkg = "swarm_control"
         type = "position_publisher"
         name = "position_publisher"
     />
+    ?>
     <node
         pkg = "swarm_control"
-        type = "driver"
-        name = "driver"
+        type = "driverNew"
+        name = "driverNew"
     />
-<<<<<<< HEAD:launch/trial1.launch
      <node
         pkg = "swarm_control"
-        type = "key_publisher.py"
-        name = "key_pub"
-        launch-prefix="gnome-terminal --command"
+        type = "convert"
+        name = "convert"
     />
-=======
->>>>>>> c39a435490ac75deb82600fbf7f2de21bf24283d:launch/swarm_control.launch
 </launch>
