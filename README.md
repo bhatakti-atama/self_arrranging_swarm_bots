@@ -1,5 +1,5 @@
 ### Project Demo 
-[![IMAGE ALT TEXT HERE](https://www.youtube.com/watch?v=_1MKJ73M_7M/0.jpg)](https://www.youtube.com/watch?v=_1MKJ73M_7M)
+[![Watch the video](https://www.youtube.com/watch?v=_1MKJ73M_7M.jpg)](https://www.youtube.com/watch?v=_1MKJ73M_7M)
 
 
 ### Requirements:
