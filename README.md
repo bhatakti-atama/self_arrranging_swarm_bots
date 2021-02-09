@@ -1,6 +1,7 @@
 ### Project Demo 
 
-[![Swarm Bots](http://img.youtube.com/vi/_1MKJ73M_7M/0.jpg)](http://www.youtube.com/watch?v=_1MKJ73M_7M "https://imgur.com/FIt7iX7")
+![Swarm GIF](https://media.giphy.com/media/qqWONC3vQn8h4JV6V0/giphy.gif)
+
 
 ### Requirements:
 
