@@ -1,6 +1,6 @@
 # Self Arranging Swarm Robots 
 
-Made as a first project in swarm robotics mainly for learning purposes. Turtlebots arrange themselves in the pattern inputted by the user 
+Made as a first project in swarm robotics mainly for learning purposes. Turtlebots arrange themselves in the pattern inputed by the user 
 
 
 ![Swarm GIF](https://media.giphy.com/media/fcYchN7yX8PHTkw0ne/giphy.gif)
@@ -35,7 +35,7 @@ The custom message is used for sending information on which pattern the bots wil
 - Point.msg is th defination of a single Point i.e x and y
     
 ### src :
--convert.cpp - this nodes converts data published in quantenerion angle system to euler angle system and publishes the converted data under "odomTrans"
+- convert.cpp - this nodes converts data published in quantenerion angle system to euler angle system and publishes the converted data under "odomTrans"
 - driver.cpp - Now redundant and has been replaced with driverNew this node drives the bot to the targeted point
 - driverNew.cpp - Does the same job as driver.cpp but useses a better method to modwl the diffrential drive bot
 - gui2.py - node for the pygame gui
