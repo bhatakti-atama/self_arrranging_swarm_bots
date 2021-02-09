@@ -37,7 +37,7 @@ The custom message is used for sending information on which pattern the bots wil
 ### src :
 - convert.cpp - this nodes converts data published in quantenerion angle system to euler angle system and publishes the converted data under "odomTrans"
 - driver.cpp - Now redundant and has been replaced with driverNew this node drives the bot to the targeted point
-- driverNew.cpp - Does the same job as driver.cpp but useses a better method to modwl the diffrential drive bot
+- driverNew.cpp - Does the same job as driver.cpp but useses a better method to model the diffrential drive bot
 - gui2.py - node for the pygame gui
 - key_publisher.py - node for keyboard imputs 
 - position_publisher - this node is used for testing a single bot. this node publishes information on which position a particular bots need to go
