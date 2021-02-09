@@ -23,26 +23,26 @@ Made as a first project in swarm robotics mainly for learning purposes. Turtlebo
 ## Brief overview of the package: 
 
 ### launch :
-- guiTest.launch - test for the pygame gui
-- robot.launch - sub-part of swarm.launch
-- swarm.launch - this is the main launch file which launches the complete system.
-- trial1.launch - launch file for a single bot
-- swarmTest.launch - same as swarm.launch but has camera and lighting 
+- **guiTest.launch** - test for the pygame gui
+- **robot.launch** - sub-part of swarm.launch
+- **swarm.launch** - this is the main launch file which launches the complete system.
+- **trial1.launch** - launch file for a single bot
+- **swarmTest.launch** - same as swarm.launch but has camera and lighting 
     
 ### msg :
 The custom message is used for sending information on which pattern the bots will be arranged :
-- Pattern.msg defines an array of size 6 of Points
-- Point.msg is th defination of a single Point i.e x and y
+- **Pattern.msg** defines an array of size 6 of Points
+- **Point.msg** is th defination of a single Point i.e x and y
     
 ### src :
-- convert.cpp - this nodes converts data published in quantenerion angle system to euler angle system and publishes the converted data under "odomTrans"
-- driver.cpp - Now redundant and has been replaced with driverNew this node drives the bot to the targeted point
-- driverNew.cpp - Does the same job as driver.cpp but useses a better method to model the diffrential drive bot
-- gui2.py - node for the pygame gui
-- key_publisher.py - node for keyboard imputs 
-- position_publisher - this node is used for testing a single bot. this node publishes information on which position a particular bots need to go
-- position _publisher_node - this node takes information about the pattern the bots should be and then assigns a particular point to a bot based on distance ( i.e it selects a bot that is least distant from the point). this node controlls 6 bots but can be modified to controll more or less bots
-- openTry.py -This node is under development will be used for pose detection currently detects position but not orientation  
+- **convert.cpp** - this nodes converts data published in quantenerion angle system to euler angle system and publishes the converted data under "odomTrans"
+- **driver.cpp** - Now redundant and has been replaced with driverNew this node drives the bot to the targeted point
+- **driverNew.cpp** - Does the same job as driver.cpp but useses a better method to model the diffrential drive bot
+- **gui2.py** - node for the pygame gui
+- **key_publisher.py** - node for keyboard imputs 
+- **position_publisher** - this node is used for testing a single bot. this node publishes information on which position a particular bots need to go
+- **position _publisher_node** - this node takes information about the pattern the bots should be and then assigns a particular point to a bot based on distance ( i.e it selects a bot that is least distant from the point). this node controlls 6 bots but can be modified to controll more or less bots
+- **openTry.py** -This node is under development will be used for pose detection currently detects position but not orientation  
 
 ### Worlds :
 - contains empty world with camera and light
