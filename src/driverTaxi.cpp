@@ -5,6 +5,7 @@
 #include <std_msgs/Float32.h>
 #include <math.h>
 #include <angles/angles.h>
+#include <swarm_control/Status.h>
 using namespace std;
 // classes so than we can save and maunpilate the recieved data
 class poseMessageClass
@@ -52,6 +53,7 @@ int main(int argc, char **argv)
     ros::Subscriber subOdom = nh.subscribe("odomTrans", 1000, &odomMessageClass::odomMessageCallback, &odomMessage);
     ros::Publisher pub = nh.advertise<geometry_msgs::Twist>("cmd_vel", 1000);
     ros::Publisher pubz = nh.advertise<std_msgs::Float32>("z", 1000);
+    ros::Publisher status_pub = nh.advertise<swarm_control::Status>("status",1000);
     ros::Rate rate(20);
     geometry_msgs::Twist msg;
     float vectorX ;
@@ -67,6 +69,7 @@ int main(int argc, char **argv)
     float distanceTrue;
     bool choice = true;
     int direction;
+    bool done = false;
     while (ros ::ok())
     {
         ros::spinOnce();
@@ -157,6 +160,17 @@ int main(int argc, char **argv)
         {
             msg.linear.x = 0;
             msg.angular.y = 0;
+            done = true;
+
+        }
+        if(done)
+        {
+            swarm_control::Status status_msg;
+
+            status_msg.location.x = poseMessage.pose.position.x ;
+            status_msg.location.y = poseMessage.pose.position.y ;
+            status_msg.status.data = done;
+            status_pub.publish(status_msg);
         }
         pub.publish(msg);
         rate.sleep();

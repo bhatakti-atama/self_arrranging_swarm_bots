@@ -12,6 +12,7 @@ add_message_files(
     FILES
     Point.msg
     Pattern.msg
+    Status.msg
 )
 generate_messages(
     DEPENDENCIES
