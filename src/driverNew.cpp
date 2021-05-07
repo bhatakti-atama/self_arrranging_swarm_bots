@@ -3,6 +3,7 @@
 #include <geometry_msgs/Twist.h>
 #include <nav_msgs/Odometry.h>
 #include <std_msgs/Float32.h>
+#include <std_msgs/Bool.h>
 #include <math.h>
 
 // classes so than we can save and maunpilate the recieved data

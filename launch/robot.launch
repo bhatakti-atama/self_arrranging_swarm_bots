@@ -34,8 +34,8 @@
     />
     <node
         pkg="swarm_control"
-        type="driverNew"
-        name="driverNew"
+        type="driverTaxi"
+        name="driverTaxi"
     />
     <node
         pkg="swarm_control"

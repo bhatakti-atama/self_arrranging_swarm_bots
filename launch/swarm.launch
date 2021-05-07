@@ -30,25 +30,22 @@
         type="position_publisher_new"
         name="position_publisher_new"
     />
-    <node
+
+     <node
         pkg="swarm_control"
-        type="key_publisher.py"
-        name="key_publisher"
+        type="randomLocation.py"
+        name="randomLocation"
     />
-        <node
-        pkg="swarm_control"
-        type="gui2.py"
-        name="gui"
-    />
+
     <group ns="bot0">
         <include file="$(find swarm_control)/launch/robot.launch">
             <arg 
                 name="x_pos" 
-                value="0.0"
+                value="-2.0"
             />
             <arg 
                 name="y_pos" 
-                value="6.0"
+                value="-2.0"
             />
             <arg 
                 name="ns" 
@@ -60,11 +57,11 @@
         <include file="$(find swarm_control)/launch/robot.launch">
             <arg 
                 name="x_pos" 
-                value="5.2"
+                value="0"
             />
             <arg 
                 name="y_pos" 
-                value="3.0"
+                value="-2.0"
             />
             <arg 
                 name="ns" 
@@ -76,11 +73,11 @@
         <include file="$(find swarm_control)/launch/robot.launch">
             <arg 
                 name="x_pos" 
-                value="5.2"
+                value="2.0"
             />
             <arg 
                 name="y_pos" 
-                value="-3.0"
+                value="-2.0"
             />
             <arg 
                 name="ns" 
@@ -92,11 +89,11 @@
         <include file="$(find swarm_control)/launch/robot.launch">
             <arg 
                 name="x_pos" 
-                value="0.0"
+                value="-2.0"
             />
             <arg 
                 name="y_pos" 
-                value="-6.0"
+                value="2.0"
             />
             <arg 
                 name="ns" 
@@ -108,11 +105,11 @@
         <include file="$(find swarm_control)/launch/robot.launch">
             <arg 
                 name="x_pos" 
-                value="-5.2"
+                value="0"
             />
             <arg 
                 name="y_pos" 
-                value="-3.0"
+                value="2.0"
             />
             <arg 
                 name="ns" 
@@ -124,11 +121,11 @@
         <include file="$(find swarm_control)/launch/robot.launch">
             <arg 
                 name="x_pos" 
-                value="-5.2"
+                value="2.0"
             />
             <arg 
                 name="y_pos" 
-                value="3.0"
+                value="2.0"
             />
             <arg 
                 name="ns" 

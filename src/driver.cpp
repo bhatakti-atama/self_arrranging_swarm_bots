@@ -4,6 +4,7 @@
 #include <nav_msgs/Odometry.h>
 #include <std_msgs/Float32.h>
 #include <math.h>
+#include <angles/angles.h>
 
 
 // classes so than we can save and maunpilate the recieved data
@@ -96,13 +97,14 @@ int main(int argc, char **argv)
         z = atan2(vectorY, vectorX);
         distance = sqrt(pow(vectorX, 2) + pow(vectorY, 2));
         thetaOld = theta;
-        theta = calcTheta(z,odomMessage.odometry.pose.pose.orientation.z);
+        theta = angles::shortest_angular_distance(odomMessage.odometry.pose.pose.orientation.z,z);
+        //theta = calcTheta(z,odomMessage.odometry.pose.pose.orientation.z);
         
 
         // first if statemnet cecks if the bot is at the target or not if bot is at the target then it we stop giving box any velocity
         if (distance > linearTolerance )
         {
-            // this if statemnt checks if the orientation of the bot is aligned with the vector connecting the bot and target 
+            // this if statemnt checks if the orientation of the bot is aligned with the vector connecting the bot and target
             // wir some margin for error
             if ( std::abs(theta) > angularTolerance)
             {
@@ -115,7 +117,7 @@ int main(int argc, char **argv)
             {
                 // we give bot linear velocity as a function of linear distance i.e amount of linear velocity we give becomes less as we go near the target
                 msg.linear.x = linearSpeed * std::min(1.0, distance/linearScale);
-                // this line corrects the orientation of the bot to align it with the vector connceting bot and the target. I have applied PID here and 
+                // this line corrects the orientation of the bot to align it with the vector connceting bot and the target. I have applied PID here and
                 //but this still needs improvement
                 msg.angular.z = ( theta / std::abs(theta)) * ( kp * (std::abs(theta) + kd * ( std::abs(theta) - std::abs(thetaOld))));
             }

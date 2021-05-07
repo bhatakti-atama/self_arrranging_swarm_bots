@@ -27,11 +27,13 @@ add_executable(driver src/driver.cpp)
 add_executable(position_publisher_new src/position_publisher_new.cpp)
 add_executable(convert src/convert.cpp)
 add_executable(driverNew src/driverNew.cpp)
+add_executable(driverTaxi src/driverTaxi.cpp)
 target_link_libraries( position_publisher ${catkin_LIBRARIES})
 target_link_libraries( driver ${catkin_LIBRARIES})
 target_link_libraries( position_publisher_new ${catkin_LIBRARIES})
 target_link_libraries( convert ${catkin_LIBRARIES})
 target_link_libraries( driverNew ${catkin_LIBRARIES})
+target_link_libraries( driverTaxi ${catkin_LIBRARIES})
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
 
